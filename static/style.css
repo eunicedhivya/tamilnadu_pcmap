@@ -50,3 +50,16 @@
 	margin: 0;
 }
 
+#tnmap path:hover {
+	fill: red;
+	transition: 0.3s;
+}
+
+.tooltip{
+	position: absolute;
+	background: #ffffff;
+	color: #333;
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 10px;
+}

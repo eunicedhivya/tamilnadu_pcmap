@@ -36,7 +36,17 @@ function draw_map(selection, options){
 			.attr('fill', "#F0F2EF")
 			.attr('stroke', "#636363")
 			.attr('stroke-width', "0.5")
-			.attr('stroke-opacity', "0.5")
+            .attr('stroke-opacity', "0.5")
+            .on("mouseover", function(d,i){
+                d3.select('.tooltip').text(d.properties['PC_NAME'])
+                    .style('display', 'block')
+                    .style("left", (d3.event.pageX + 10) + "px")
+					.style("top", d3.event.pageY + "px")
+            })
+            .on("mouseout", function(d,i){
+                d3.select('.tooltip').text(d.properties['PC_NAME'])
+                    .style('display', 'none')
+            })
 
     
     })
