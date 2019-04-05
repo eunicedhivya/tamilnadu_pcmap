@@ -1,0 +1,48 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+#tnmap {
+	width: 600px;
+	background-color: #ccc;
+	height: auto;
+	margin: 0 auto;
+}
+
+#tnmap:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#tnmap .map{ 
+	width: 40%; 
+	float: left;
+	padding: 10px;
+}
+#tnmap .info{ 
+	width: 60%;
+	float: right;
+	padding: 10px;
+} 
+#tnmap .map img{ width: 100%;}
+#tnmap .info .candidates{
+	width: 100%;
+}
+#tnmap .info .candidates img{
+	width: 100%;
+
+}
+#tnmap .info .candidates .item{
+	width:25%;
+	float: left;
+	text-align: center;
+	padding: 0 5px;
+}
+
+#tnmap h2{
+	margin: 0;
+}
