@@ -11,8 +11,8 @@
 </head>
 <body>
     <div id="tnmap">
-            <div class="map">
-                <img src="image\tnmap.PNG" alt="">
+            <div class="graphic">
+                <!-- <img src="image\tnmap.PNG" alt=""> -->
             </div> <!---.map-->
             <div class="info">
                 <h2>Headline goes here</h2>
@@ -42,5 +42,22 @@
                 </div><!---#candidates-->
             </div><!---.info-->
     </div> <!---#tnmap-->
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="static\create-map.js"></script>
+    <script>
+
+        const options = "test";
+        
+        draw_map('.graphic', {
+            width: 430,
+             height: 500,
+             scale: 4800,
+             latlong: [78.5, 10.8],
+            map: 'data/tn_pc.json'
+        });
+
+    </script>
 </body>
 </html>
