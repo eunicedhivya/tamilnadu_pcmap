@@ -33,8 +33,8 @@ function draw_map(selection, options){
                 // console.log(i+1,d.properties['PC_CODE'])
                 return 'boundary c' + d.properties['PC_CODE']
             })
-			.attr('fill', "#F0F2EF")
-			.attr('stroke', "#636363")
+			.attr('fill', "#FFFFFF")
+			.attr('stroke', "#676767")
 			.attr('stroke-width', "0.5")
             .attr('stroke-opacity', "0.5")
             .on("mouseover", function(d,i){
@@ -47,8 +47,47 @@ function draw_map(selection, options){
                 d3.select('.tooltip').text(d.properties['PC_NAME'])
                     .style('display', 'none')
             })
+            .on("click", function(d,i){
+                d3.selectAll('.boundary').attr('fill', '#FFFFFF')
+                d3.select(this).attr('fill', '#BF318A');
+                let selectedData = filterDataByConst(d.properties['PC_CODE']);
+
+                d3.select('#const-name').text(d.properties['PC_NAME'])
+
+                let candidates = d3.select('.candidates');
+
+                candidates.html(null);
+
+                let item = candidates.selectAll('.item')
+                    .data(selectedData).enter().append("div")
+                    .attr('class', 'item')
+
+                item.append('img')
+                    .attr('src', 'image\\1.png')
+                    .attr('alt', 'test')
+
+                item.append('p')
+                    .text(function(d){
+                        return d["Candidate_Nme"];
+                    })
+                
+                item.append('span')
+                    .text(function(d){
+                        return d["Party_Name"];
+                    })
+                    
+                
+
+            })
 
     
     })
 
 }
+
+function filterDataByConst(criteria){
+    return constData.filter(function(obj){
+        return obj['PC_No'] === criteria;
+    })
+}
+
